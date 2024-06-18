@@ -126,6 +126,7 @@ celerybeat.pid
 .venv
 .idea
 __pycache__
+instance
 env/
 venv/
 ENV/

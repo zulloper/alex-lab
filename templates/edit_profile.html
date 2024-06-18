@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보 수정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>회원정보 수정</h2>
+    <form method="POST" action="/edit_profile">
+        <label for="email">이메일:</label>
+        <input type="text" name="email" value="{{ user.email|none_to_empty }}" >
+        <br>
+        <label for="phone">휴대폰번호:</label>
+        <input type="text" name="phone" value="{{ user.phone|none_to_empty }}" >
+        <br>
+        <label for=44"gender">성별:</label>
+        <input type="text" name="gender" value="{{ user.gender|none_to_empty }}" >
+        <br>
+        <button type="submit" class="btn">수정하기</button>
+    </form>
+    <a href="{{ url_for('home') }}" class="btn">홈으로 돌아가기</a>
+</body>
+</html>

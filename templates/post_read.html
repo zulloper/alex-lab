@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <div class="read-container">
+            <p>{{ post.content }}</p>
+        </div>
+        <nav>
+            <a href="{{ url_for('home') }}" class="btn">목록으로 돌아가기</a>
+            <a href="{{ url_for('update', post_id=post.id) }}" class="btn">수정하기</a>
+        </nav>
+    </div>
+</body>
+</html>

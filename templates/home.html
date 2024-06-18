@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h2>Welcome, {{ username }}!</h2>
+    <h3>이메일: {{ email|none_to_empty }}</h3>
+    <h3>휴대폰 번호: {{ phone|none_to_empty }}</h3>
+    <h3>성별:  {{ gender|none_to_empty }}</h3>
+    <br>
+    <a href="{{ url_for('edit_profile_page') }}" class="btn">계정 정보 수정하기</a><br>
+    <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+</body>
+</html>

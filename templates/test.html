@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSP</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' trust.com; script-src 'nonce-aaaaaaaaaa'; img-src https://*;">
+
+</head>
+<body>
+<script src='http://127.0.0.1/static/test.js'></script>
+<script> alert('xss-inline'); </script>
+<script nonce=aaaaaaaaaa> alert('XSS-nonce'); </script>
+
+<img src='http://127.0.0.1/static/test.png'>
+<img src='https://t1.kakaocdn.net/kakaoicloud/portal/introduce/img_introduction3.png'>
+</body>
+</html>

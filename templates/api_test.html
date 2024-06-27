@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Request Test</title>
+    <style>
+        pre { background-color: #f4f4f4; padding: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>API Request Tester</h1>
+    <form id="apiForm">
+        <label for="url">API URL:</label>
+        <input type="text" id="url" name="url" required><br><br>
+        <label for="token">Token:</label>
+        <input type="text" id="token" name="token" required><br><br>
+        <button type="button" onclick="fetchAPI()">Fetch API</button>
+    </form>
+    <h2>Result:</h2>
+    <pre id="apiResult"></pre>
+
+    <script>
+        function fetchAPI() {
+            const url = document.getElementById('url').value;
+            const token = document.getElementById('token').value;
+            const headers = new Headers({
+                'x-auth-token': token
+            });
+
+            fetch(url, { method: 'GET', headers: headers })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('apiResult').textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById('apiResult').textContent = 'Error: ' + error.message;
+                });
+        }
+    </script>
+</body>
+</html>

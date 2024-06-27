@@ -27,5 +27,14 @@
         <button type="submit" class="btn">회원가입</button>
     </form>
     <a href="{{ url_for('login') }}" class="btn">이미 계정이 있다면? 로그인 하세요!</a>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 </body>
 </html>
